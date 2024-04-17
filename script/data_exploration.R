@@ -320,14 +320,14 @@ adonis.pvals <- sapply(names(adonis_list), function(x)
     y[x, "Pr(>F)"]))
 
 
-Write only those pvals < 0.05
+# Write only those pvals < 0.05
  
 adonis.signifs <- adonis.pvals
 adonis.signifs[ adonis.signifs > 0.05 ] <- ""
 adonis.signifs
 
 
-For each dist_meas, get p-vals of covariates, to see what covaries with each trait
+# For each dist_meas, get p-vals of covariates, to see what covaries with each trait
  
 adonis.covs.pvals <- lapply(adonis_list, function(y) {
   cov.ps <- sapply(names(y), function(x) {
@@ -337,7 +337,7 @@ adonis.covs.pvals <- lapply(adonis_list, function(y) {
   cov.ps
 })
 
-Then write just those which are significant, ignoring the values for same trait (if one of the covs)
+# Then write just those which are significant, ignoring the values for same trait (if one of the covs)
 
  
 adonis.covs.signifs <- lapply(names(adonis.covs.pvals), function(x) {
@@ -354,5 +354,3 @@ adonis.covs.signifs <- lapply(names(adonis.covs.pvals), function(x) {
  
 adonis.covs.signifs
 adonis.signifs
-
-
